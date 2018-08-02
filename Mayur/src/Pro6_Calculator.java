@@ -30,10 +30,11 @@ public class Pro6_Calculator extends Pro2_Addition {
 		
 		Pro2_Addition p2=new Pro2_Addition();
 		
+		Pro3_Division p3=new Pro3_Division();
+		
 		Scanner s=new Scanner(System.in);
 			
 		p6.Presenting(s);
-		
 		
 		switch(ch)
 		{
@@ -42,8 +43,9 @@ public class Pro6_Calculator extends Pro2_Addition {
 			
 		break;
 		
-		case 2: p1.input();
-				p3.division(p1,p3);
+		case 2: p3.division(p1,p3);
+			
+		break;
 		
 		default:
 			System.out.println("\n\t SORRY ! \n\t YOU HAVE TO ENTER CORRECT INPUT!\n\t "

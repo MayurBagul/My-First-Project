@@ -8,13 +8,13 @@ import java.util.Scanner;
 	public void input()
 	{
 		Scanner s=new Scanner(System.in);
-		System.out.print("Enter Your First Number = \t");
+		System.out.print("\n\tEnter Your First Number = \t");
 		
 		a=s.nextFloat();
 		
 		
 		
-		System.out.print("Enter Your Second Number = \t");
+		System.out.print("\n\n\tEnter Your Second Number = \t");
 		
 		b=s.nextFloat();
 		
