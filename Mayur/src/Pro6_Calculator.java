@@ -38,9 +38,12 @@ public class Pro6_Calculator extends Pro2_Addition {
 		switch(ch)
 		{
 		case 1: p1.input();
-				p2.Addtion(p1);
+				p2.Addtion(p1,p2);
 			
 		break;
+		
+		case 2: p1.input();
+				p3.division(p1,p3);
 		
 		default:
 			System.out.println("\n\t SORRY ! \n\t YOU HAVE TO ENTER CORRECT INPUT!\n\t "
