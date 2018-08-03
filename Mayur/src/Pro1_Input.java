@@ -12,9 +12,7 @@ import java.util.Scanner;
 		
 		a=s.nextFloat();
 		
-		
-		
-		System.out.print("\n\n\tEnter Your Second Number = \t");
+		System.out.print("\n\tEnter Your Second Number = \t");
 		
 		b=s.nextFloat();
 		

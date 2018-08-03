@@ -15,7 +15,7 @@ public class Pro6_Calculator extends Pro2_Addition {
 		System.out.println("\n\n\t 1. ADDITION \n");
 		System.out.println("\n\t 2. DIVISION \n");
 		System.out.println("\n\t 3. MULTIPLICATION \n");
-		System.out.print("\n\t PLEASE ENTER YOUR CHOICE = \t");
+		System.out.print("\n\tPLEASE ENTER YOUR CHOICE = \t");
 		
 		ch=s.nextInt();
 		
@@ -32,6 +32,8 @@ public class Pro6_Calculator extends Pro2_Addition {
 		
 		Pro3_Division p3=new Pro3_Division();
 		
+		Pro5_Multiplication p5=new Pro5_Multiplication();
+		
 		Scanner s=new Scanner(System.in);
 			
 		p6.Presenting(s);
@@ -47,8 +49,12 @@ public class Pro6_Calculator extends Pro2_Addition {
 			
 		break;
 		
+		case 3: p5.multiplication(p1, p5);
+		
+		break;
+		
 		default:
-			System.out.println("\n\t SORRY ! \n\t YOU HAVE TO ENTER CORRECT INPUT!\n\t "
+			System.out.println("\n\tSORRY ! \n\t YOU HAVE TO ENTER CORRECT INPUT!\n\t "
 					+ "PLEASE SELECT APPROPRIATE OPTION!");
 						
 		}
