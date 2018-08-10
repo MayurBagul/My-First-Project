@@ -1,3 +1,4 @@
+package cal;
 
 public class Pro8_Remainder extends Pro1_Input {
 
