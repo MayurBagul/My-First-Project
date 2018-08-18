@@ -5,16 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class pqr {
+public class Queries {
 
-	
-	
 	void selectFun(Connection con)
 	{
 		try
 		{
 			
-		
          Statement st=con.createStatement();
 		
 		ResultSet rs=st.executeQuery("Select * from login");
@@ -48,12 +45,6 @@ public class pqr {
 			e.printStackTrace();
 		}
 		   
-		
-        
-
 	}
-	
-	
-	
-	
+
 }

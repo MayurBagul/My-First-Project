@@ -9,24 +9,15 @@ public class Profile {
 	
 		Connection con=null;
 		
-		abc a=new abc();
-		pqr p=new pqr();
-		
-		
-	try {
-			
+		ConnectDb a=new ConnectDb();
+		Queries p=new Queries();
+				
 		con=a.connect();
-		
-
+	
 		p.selectFun(con);
 		
-       } 
-	
-	 finally
-	  
-	  {
-		  a.close(con);
-	  }
+		a.close(con);
+	 
 	
 	}
 

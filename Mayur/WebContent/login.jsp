@@ -4,11 +4,14 @@
 </head>
 
 <body>
-<form name="myform" action="Check.jsp"><br><br>
+<form action="log" method="POST"><br><br>
 <center>
-UserName :  <input type="text" name="t1"><br><br>
-Password :  &nbsp; <input type="password" name="t2"><br><br>
-<input type="submit" value="Submit">
+<h2>LOG IN</h2><br><hr><br><br>
+UserName :  <input type="text" name="uname"><br><br>
+Password :  &nbsp; <input type="password" name="pass"><br><br>
+<input type="submit" value="Submit"><br>
+<br><hr>
+<br><br>
 </center>
 </form>
 </body>
