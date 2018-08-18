@@ -10,13 +10,13 @@
 </head>
 
 <body>
-<form name="myform" action="fpage" method="post">
+<form name="myform" action="sign" method="post">
 
 <fieldset align="center">
 
 
-<legend><h3>Sign Up</h3></legend><br>
-
+<legend align="center"><h3>Sign Up</h3></legend><br>
+<center>
 
 First Name : &nbsp;&nbsp;<input type="text" name="fname">
 <br><br>
@@ -33,10 +33,15 @@ UserName : &nbsp;&nbsp;<input type="text" name="uname">
 Password : &nbsp;&nbsp;<input type="password" name="pass"><br>
 <br><br>
 <input align="center" type="submit" value="submit">
+<br>
 
 
 <br>
+</center>
 </fieldset>
 </form>
+<br>
+<center><a href="MainPage.jsp">www.TechMayur.com</a></center>
+
 </body>
 </html>

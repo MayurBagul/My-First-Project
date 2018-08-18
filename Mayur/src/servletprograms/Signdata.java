@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Logprocess
  */
 @WebServlet("/Logprocess")
-public class Logprocess extends HttpServlet {
+public class Signdata extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logprocess() {
+    public Signdata() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,39 +38,20 @@ public class Logprocess extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		
-		String firstname=null,lastname=null,usename=null,mail=null,password=null;
+		String firstname=null,lastname=null,mail=null,usename=null,password=null;
 		
-		//firstname=request.getParameter("fname");
+		firstname=request.getParameter("fname");
 		
-		//lastname=request.getParameter("lname");
+		lastname=request.getParameter("lname");
+		
+		mail=request.getParameter("eid");
 		
 		usename=request.getParameter("uname");
 		
-		//mail=request.getParameter("eid");
-		
 		password=request.getParameter("pass");
 		
-		if(usename.equals("Bat")&&password.equals("123"))
-		{
-			RequestDispatcher r=request.getRequestDispatcher("/homepage.jsp");
-			
-			r.forward(request, response);
-			
-		}
-		
-		else
-		{
-			
-			System.out.println("Sorry You have Enter Wrong Credential !");
-			
-			RequestDispatcher r=request.getRequestDispatcher("/login.jsp");
-			
-			r.forward(request, response);
-			
-		}
-		
+		RequestDispatcher r=request.getRequestDispatcher("login");
 	
-		
 		
 		
 	}
