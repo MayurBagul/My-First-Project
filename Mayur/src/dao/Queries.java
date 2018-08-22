@@ -1,9 +1,10 @@
-package login;
+package dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import bean.Logbin;
 
 public class Queries {
 
@@ -26,7 +27,7 @@ public class Queries {
 		}
 	}
 	
-	void Insert(Connection con)
+	public void Insert(Connection con,Logbin l)
 	{
 		
 		   Statement st=null;
@@ -34,10 +35,16 @@ public class Queries {
 		   
 	try {
 			st = con.createStatement();
-		int j=st.executeUpdate("Insert into login values(3,'Sandip',123)");
+			
+			
+			//System.out.println("in insert>>>>>>"+con);
+		//	System.out.println("R "+l.getFname());
+		int j=st.executeUpdate("Insert into signup (fname,lname,mail,uname,password) values('"+l.getFname()+"',' "+l.getLname()+"','"+l.getEid()+"','"+l.getUname()+"','"+l.getPass()+"')");
 		
 		if(j==1)
-		System.out.println("Record Inserted Successfully ! ");
+		System.out.println("Your Account Has been Created Successfully ! ");
+		else 
+		System.out.println("Failed to insert");
 		}
 		
 		catch (SQLException e) {

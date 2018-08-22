@@ -1,4 +1,6 @@
 package servletprograms;
+import bean.Logbin;
+import dao.*;
 
 import java.io.IOException;
 
@@ -8,6 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+
 
 /**
  * Servlet implementation class Logprocess
@@ -50,9 +58,28 @@ public class Signdata extends HttpServlet {
 		
 		password=request.getParameter("pass");
 		
-		RequestDispatcher r=request.getRequestDispatcher("login");
-	
+		Logbin b=new Logbin();
 		
+		b.setFname(firstname);
+		b.setLname(lastname);
+		b.setEid(mail);
+		b.setUname(usename);
+		b.setPass(password);
+		
+		ConnectDb c=new ConnectDb();
+		
+		Connection con=c.connect();
+		
+		Queries q=new Queries();
+		
+		q.Insert(con,b);
+		
+		HttpSession s=request.getSession();
+		s.setAttribute("baen", b);
+		
+		RequestDispatcher r=request.getRequestDispatcher("/login.jsp");
+		
+		r.forward(request, response);
 		
 	}
 

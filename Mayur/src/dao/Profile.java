@@ -1,6 +1,5 @@
-package login;
+package dao;
 import java.sql.*;
-
 
 
 public class Profile {

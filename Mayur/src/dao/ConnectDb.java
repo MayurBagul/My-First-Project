@@ -1,4 +1,4 @@
-package login;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,16 +6,18 @@ import java.sql.SQLException;
 
 public class ConnectDb {
 	
-	Connection con=null;
+	Connection con;
 	
-	Connection connect()
+	public Connection connect()
 	{
-		
-		
-		try {
+		try
+		{
 			Class.forName("com.mysql.jdbc.Driver");
+			
 		
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mayur","Mayur","Mayur1234");
+		
+		
 		}
 		
 		
@@ -36,7 +38,7 @@ public class ConnectDb {
 	}
 	
 	
-	void close(Connection connect)
+	public void close(Connection connect)
 	{
 		try {
 			connect.close();
