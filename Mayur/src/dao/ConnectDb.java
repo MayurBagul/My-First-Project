@@ -21,9 +21,8 @@ public class ConnectDb {
 		}
 		
 		
-		catch (ClassNotFoundException e ) {
-		
-			
+		catch (ClassNotFoundException e ) 
+		{
 			e.printStackTrace();
 	
 		}
