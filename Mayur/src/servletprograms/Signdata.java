@@ -1,6 +1,6 @@
 package servletprograms;
 import bean.Logbin;
-import dao.*;
+import daoOracle.*;
 
 import java.io.IOException;
 
@@ -11,11 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-
-
 
 /**
  * Servlet implementation class Logprocess
@@ -47,12 +42,15 @@ public class Signdata extends HttpServlet {
 	{
 		
 		String firstname=null,lastname=null,mail=null,usename=null,password=null;
+		int id;
+		
+		id=Integer.parseInt(request.getParameter("id"));
 		
 		firstname=request.getParameter("fname");
 		
 		lastname=request.getParameter("lname");
 		
-		mail=request.getParameter("eid");
+		mail=request.getParameter("emailid");
 		
 		usename=request.getParameter("uname");
 		
@@ -60,23 +58,25 @@ public class Signdata extends HttpServlet {
 		
 		Logbin b=new Logbin();
 		
+		
+		b.setEid(id);
 		b.setFname(firstname);
 		b.setLname(lastname);
-		b.setEid(mail);
+		b.setEmid(mail);
 		b.setUname(usename);
 		b.setPass(password);
 		
-		ConnectDb c=new ConnectDb();
+		ConnectOrac c=new ConnectOrac();
 		
-		Connection con=c.connect();
+		c.connect();
 		
-		Queries q=new Queries();
+		c.insert(b);
 		
-		q.Insert(con,b);
 		
 		HttpSession s=request.getSession();
 		s.setAttribute("baen", b);
 		
+
 		RequestDispatcher r=request.getRequestDispatcher("/login.jsp");
 		
 		r.forward(request, response);

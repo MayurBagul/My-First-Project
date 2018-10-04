@@ -33,11 +33,7 @@ public class ConnectOrac
 		}
 		
 		
-		
-		
 		return con;
-	
-		
 	
 	}
 

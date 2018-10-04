@@ -18,13 +18,16 @@
 <legend align="center"><h3>Sign Up</h3></legend><br>
 <center>
 
+ID  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &nbsp;&nbsp;<input type="text" name="id">
+<br><br>
+
 First Name : &nbsp;&nbsp;<input type="text" name="fname">
 <br><br>
 
 Last Name : &nbsp;&nbsp;<input type="text" name="lname">
 <br><br>
 
-Email ID :  &nbsp;&nbsp;<input type="email" name="eid"><br><br>
+Email ID &nbsp;:  &nbsp;&nbsp;<input type="email" name="emailid"><br><br>
 
 
 UserName : &nbsp;&nbsp;<input type="text" name="uname">

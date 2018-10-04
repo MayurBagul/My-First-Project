@@ -1,6 +1,7 @@
 package servletprograms;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Checklog
@@ -39,30 +41,53 @@ public class Checklog extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-	 String	usename=null,password=null;
+		String	usename=null,password=null;
 	 
-	 usename=request.getParameter("uname");
+		usename=request.getParameter("uname");
 	 
-	 password=request.getParameter("pass");
+		password=request.getParameter("pass");
 		
-		if(usename.equals("Bat")&&password.equals("123"))
-		{
-			RequestDispatcher r=request.getRequestDispatcher("/ImageCal.jsp");
-			
-			r.forward(request, response);
-			
-		}
+		ArrayList<String> log=new ArrayList<>();
 		
-		else
-		{
+		log.add(usename);
+		log.add(password);
+		
+		HttpSession s=request.getSession();
+		
+		s.setAttribute("login",log);
+	
+		
+		
+		
+		
+		
+		//l_user.add(usename);
+		
+		//ArrayList<String> l_pass=new ArrayList<>();
+		
+		//l_pass.add(password);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 			
-			System.out.println("Sorry You have Enter Wrong Credential !");
-			
-			RequestDispatcher r=request.getRequestDispatcher("/login.jsp");
-			
-			r.include(request, response);
-			
-		}
+		
 		
 		
 	}

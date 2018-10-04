@@ -2,7 +2,8 @@ package bean;
 
 public class Logbin {
 	
-	private String fname,lname,eid,uname,pass;
+	private String fname,lname,uname,pass,emid ;
+	int id;
 	
 	public String getFname()
 	{
@@ -14,9 +15,9 @@ public class Logbin {
 		return lname;
 	}
 	
-	public String getEid()
+	public int getId()
 	{
-		return eid;
+		return id;
 	}
 	
 	public String getUname()
@@ -29,6 +30,11 @@ public class Logbin {
 		return pass;
 	}
 	
+	public String getEmid()
+	{
+		return emid;
+	}
+	
 	public void setFname(String fname)
 	{
 		this.fname=fname;
@@ -39,9 +45,9 @@ public class Logbin {
 		this.lname=lname;
 	}
 	
-	public void setEid(String eid)
+	public void setEid(int id)
 	{
-		this.eid=eid;
+		this.id=id;
 	}
 	
 	public void setUname(String uname)
@@ -55,5 +61,9 @@ public class Logbin {
 	}
 	
 	
+	public void setEmid(String emid)
+	{
+		this.emid=emid;
+	}
 
 }
