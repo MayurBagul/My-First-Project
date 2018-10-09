@@ -1,5 +1,5 @@
 package servletprograms;
-import bean.Logbin;
+import bean.Signbean;
 import daoOracle.*;
 
 import java.io.IOException;
@@ -56,7 +56,7 @@ public class Signdata extends HttpServlet {
 		
 		password=request.getParameter("pass");
 		
-		Logbin b=new Logbin();
+		Signbean b=new Signbean();
 		
 		
 		b.setEid(id);

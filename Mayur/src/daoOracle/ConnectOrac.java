@@ -5,13 +5,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import bean.Logbin;
+import bean.LogBean;
+import bean.Signbean;
 import servletprograms.Checklog;
 
 public class ConnectOrac 
 {
 	Connection con;
+	boolean verified=false;
 	public Connection connect()
 	{
 	
@@ -41,7 +44,7 @@ public class ConnectOrac
 	}
 	
 	
-	public void insert(Logbin l)
+	public void insert(Signbean l)
 	{
 		try
 		{
@@ -70,33 +73,45 @@ public class ConnectOrac
 	}
 	
 	
-	public void loginFetch()
+	public boolean loginFetch(LogBean lb)
 	{
 		try
 		{
+	
+			ArrayList <String> login_fetch=new ArrayList<>();
 			
-			Checklog c=session.getAttribute();
+			login_fetch.add(lb.getUser_name());
 			
-			
-			
+			login_fetch.add(lb.getPassword());
 			
 			String qry="select username, password from signup where username=? and password=?";
 			
 			PreparedStatement p=con.prepareStatement(qry);
 			
+			p.setString(1, login_fetch.get(0));
+			
+			p.setString(2, login_fetch.get(1));
+			
+			
 			ResultSet rs=p.executeQuery();
-			
-			
-			
 			
 			
 			while(rs.next())
 			{
-				System.out.println(rs.getString(1)+""+rs.getString(2));
+				if(rs.getString(1).equals(lb.getUser_name())&&rs.getString(2).equals(lb.getPassword()))
+				{
+					
+					verified=true;
+					
+					//System.out.println("\tWelcome To TechMayur.com ");
+				}
+			
+			//System.out.println(rs.getString(1)+""+rs.getString(2));
 			}
+		
 			
 			
-		//	ArrayList <String> signup_fetch=new ArrayList<>();
+		
 			
 		//	signup_fetch.add(rs.getString(1));
 			
@@ -107,6 +122,8 @@ public class ConnectOrac
 		{
 			System.out.println(e);
 		}
+		return verified;
+		
 	}
 	
 	
@@ -129,13 +146,11 @@ public class ConnectOrac
 	}
 	
 	
-	public static void main(String args[])
+	/*public static void main(String args[])
 	{
 		ConnectOrac o=new ConnectOrac();
-		
-		o.loginFetch();
-		
-	}
+	
+	}	*/
 
 }
 

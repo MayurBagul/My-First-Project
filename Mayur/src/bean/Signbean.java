@@ -1,6 +1,6 @@
 package bean;
 
-public class Logbin {
+public class Signbean {
 	
 	private String fname,lname,uname,pass,emid ;
 	int id;

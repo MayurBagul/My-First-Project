@@ -1,6 +1,7 @@
 package servletprograms;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import bean.LogBean;
+import daoOracle.ConnectOrac;
 
 /**
  * Servlet implementation class Checklog
@@ -42,53 +46,41 @@ public class Checklog extends HttpServlet {
 		doGet(request, response);
 		
 		String	usename=null,password=null;
+		boolean verified=false;
 	 
 		usename=request.getParameter("uname");
 	 
 		password=request.getParameter("pass");
 		
-		ArrayList<String> log=new ArrayList<>();
+		LogBean lb=new LogBean();
 		
-		log.add(usename);
-		log.add(password);
+		lb.setUser_name(usename);
+		lb.setPassword(password);
 		
-		HttpSession s=request.getSession();
+		ConnectOrac c=new ConnectOrac();
 		
-		s.setAttribute("login",log);
-	
+		c.connect();
+		
+		verified=c.loginFetch(lb);
+		
+		if(verified==true)
+		{
+			response.sendRedirect("ImageCal.jsp");
+		}
+		else
+		{
+			response.sendRedirect("error.html");
+		}
 		
 		
-		
-		
+
 		
 		//l_user.add(usename);
 		
 		//ArrayList<String> l_pass=new ArrayList<>();
 		
 		//l_pass.add(password);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
-		
-		
+	
 		
 	}
 
